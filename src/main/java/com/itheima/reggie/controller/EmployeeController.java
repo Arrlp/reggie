@@ -42,11 +42,13 @@ public class EmployeeController {
 
         //3.判断是否查到数据 如果为空则登录失败
         if(emp == null){
+            log.info("登录失败");
             return R.error("登录失败");
         }
 
         //4.密码对比 如果不一致则登录失败
         if(!emp.getPassword().equals(password)){
+            log.info("登录失败");
             return R.error("登录失败");
         }
 
@@ -56,7 +58,8 @@ public class EmployeeController {
         }
 
         //6.登录成功 将用户id存入session
-        request.getSession().setAttribute("employee",emp.getId());
+        request.getSession().setAttribute("user",emp.getId());
+        log.info("登录成功");
         return R.success(emp);
     }
 

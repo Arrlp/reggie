@@ -1,0 +1,3222 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "瑞吉外卖接口文档",
+    "version": "1.0",
+    "title": "瑞吉外卖"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "address-book-controller",
+      "description": "Address Book Controller"
+    },
+    {
+      "name": "category-controller",
+      "description": "Category Controller"
+    },
+    {
+      "name": "common-controller",
+      "description": "Common Controller"
+    },
+    {
+      "name": "dish-controller",
+      "description": "Dish Controller"
+    },
+    {
+      "name": "employee-controller",
+      "description": "Employee Controller"
+    },
+    {
+      "name": "order-controller",
+      "description": "Order Controller"
+    },
+    {
+      "name": "setmeal-controller",
+      "description": "Setmeal Controller"
+    },
+    {
+      "name": "shopping-cart-controller",
+      "description": "Shopping Cart Controller"
+    },
+    {
+      "name": "user-controller",
+      "description": "User Controller"
+    }
+  ],
+  "paths": {
+    "/addressBook": {
+      "post": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "save",
+        "operationId": "saveUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "addressBook",
+            "description": "addressBook",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressBook",
+              "originalRef": "AddressBook"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«AddressBook»",
+              "originalRef": "R«AddressBook»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/addressBook/default": {
+      "get": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "getDefault",
+        "operationId": "getDefaultUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«AddressBook»",
+              "originalRef": "R«AddressBook»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "setDefault",
+        "operationId": "setDefaultUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "addressBook",
+            "description": "addressBook",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddressBook",
+              "originalRef": "AddressBook"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«AddressBook»",
+              "originalRef": "R«AddressBook»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/addressBook/list": {
+      "get": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "list",
+        "operationId": "listUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "cityCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cityName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consignee",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "detail",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "districtCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "districtName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "isDefault",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "label",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "phone",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "provinceCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "provinceName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sex",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«AddressBook»»",
+              "originalRef": "R«List«AddressBook»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/addressBook/{id}": {
+      "get": {
+        "tags": [
+          "address-book-controller"
+        ],
+        "summary": "get",
+        "operationId": "getUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R",
+              "originalRef": "R"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/category": {
+      "post": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "save",
+        "operationId": "saveUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "category",
+            "description": "category",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category",
+              "originalRef": "Category"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "update",
+        "operationId": "updateUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "category",
+            "description": "category",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Category",
+              "originalRef": "Category"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "delete",
+        "operationId": "deleteUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/category/list": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "list",
+        "operationId": "listUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "createTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«Category»»",
+              "originalRef": "R«List«Category»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/category/page": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "page",
+        "operationId": "pageUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»",
+              "originalRef": "R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/common/download": {
+      "get": {
+        "tags": [
+          "common-controller"
+        ],
+        "summary": "download",
+        "operationId": "downloadUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/common/upload": {
+      "post": {
+        "tags": [
+          "common-controller"
+        ],
+        "summary": "upload",
+        "operationId": "uploadUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "file",
+            "description": "file",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish": {
+      "post": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "save",
+        "operationId": "saveUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dishDto",
+            "description": "dishDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DishDto",
+              "originalRef": "DishDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "update",
+        "operationId": "updateUsingPUT_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "dishDto",
+            "description": "dishDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DishDto",
+              "originalRef": "DishDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "delete",
+        "operationId": "deleteUsingDELETE_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/dish/list": {
+      "get": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "list",
+        "operationId": "listUsingGET_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«DishDto»»",
+              "originalRef": "R«List«DishDto»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish/page": {
+      "get": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "page",
+        "operationId": "pageUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»",
+              "originalRef": "R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish/status/{status}": {
+      "post": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "updateStatus",
+        "operationId": "updateStatusUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "description": "status",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/dish/{id}": {
+      "get": {
+        "tags": [
+          "dish-controller"
+        ],
+        "summary": "getById",
+        "operationId": "getByIdUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«DishDto»",
+              "originalRef": "R«DishDto»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee": {
+      "post": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "save",
+        "operationId": "saveUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "employee",
+            "description": "employee",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee",
+              "originalRef": "Employee"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "update",
+        "operationId": "updateUsingPUT_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "employee",
+            "description": "employee",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee",
+              "originalRef": "Employee"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/login": {
+      "post": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "login",
+        "operationId": "loginUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "employee",
+            "description": "employee",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Employee",
+              "originalRef": "Employee"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Employee»",
+              "originalRef": "R«Employee»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/logout": {
+      "post": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "logout",
+        "operationId": "logoutUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/page": {
+      "get": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "page",
+        "operationId": "pageUsingGET_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»",
+              "originalRef": "R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/employee/{id}": {
+      "get": {
+        "tags": [
+          "employee-controller"
+        ],
+        "summary": "getById",
+        "operationId": "getByIdUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Employee»",
+              "originalRef": "R«Employee»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/order/submit": {
+      "post": {
+        "tags": [
+          "order-controller"
+        ],
+        "summary": "submit",
+        "operationId": "submitUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orders",
+            "description": "orders",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Orders",
+              "originalRef": "Orders"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal": {
+      "post": {
+        "tags": [
+          "setmeal-controller"
+        ],
+        "summary": "save",
+        "operationId": "saveUsingPOST_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "setmealDto",
+            "description": "setmealDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetmealDto",
+              "originalRef": "SetmealDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "setmeal-controller"
+        ],
+        "summary": "updateWithDish",
+        "operationId": "updateWithDishUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "setmealDto",
+            "description": "setmealDto",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetmealDto",
+              "originalRef": "SetmealDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "setmeal-controller"
+        ],
+        "summary": "delete",
+        "operationId": "deleteUsingDELETE_2",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/setmeal/list": {
+      "get": {
+        "tags": [
+          "setmeal-controller"
+        ],
+        "summary": "list",
+        "operationId": "listUsingGET_3",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "createTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "createUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "updateTime",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "updateUser",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«Setmeal»»",
+              "originalRef": "R«List«Setmeal»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal/page": {
+      "get": {
+        "tags": [
+          "setmeal-controller"
+        ],
+        "summary": "page",
+        "operationId": "pageUsingGET_3",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Page»",
+              "originalRef": "R«Page»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal/status/{status}": {
+      "post": {
+        "tags": [
+          "setmeal-controller"
+        ],
+        "summary": "setStatus",
+        "operationId": "setStatusUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "ids",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "description": "status",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/setmeal/{id}": {
+      "get": {
+        "tags": [
+          "setmeal-controller"
+        ],
+        "summary": "getByIdWithDish",
+        "operationId": "getByIdWithDishUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«SetmealDto»",
+              "originalRef": "R«SetmealDto»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/shoppingCart/add": {
+      "post": {
+        "tags": [
+          "shopping-cart-controller"
+        ],
+        "summary": "add",
+        "operationId": "addUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "shoppingCart",
+            "description": "shoppingCart",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShoppingCart",
+              "originalRef": "ShoppingCart"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«ShoppingCart»",
+              "originalRef": "R«ShoppingCart»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/shoppingCart/clean": {
+      "delete": {
+        "tags": [
+          "shopping-cart-controller"
+        ],
+        "summary": "delete",
+        "operationId": "deleteUsingDELETE_3",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/shoppingCart/list": {
+      "get": {
+        "tags": [
+          "shopping-cart-controller"
+        ],
+        "summary": "list",
+        "operationId": "listUsingGET_4",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«ShoppingCart»»",
+              "originalRef": "R«List«ShoppingCart»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "summary": "login",
+        "operationId": "loginUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "creationTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "lastAccessedTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "map",
+            "description": "map",
+            "required": true,
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "maxInactiveInterval",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "new",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "valueNames",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«User»",
+              "originalRef": "R«User»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/user/sendMsg": {
+      "post": {
+        "tags": [
+          "user-controller"
+        ],
+        "summary": "sendMsg",
+        "operationId": "sendMsgUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "creationTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "lastAccessedTime",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "maxInactiveInterval",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "new",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "body",
+            "name": "user",
+            "description": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User",
+              "originalRef": "User"
+            }
+          },
+          {
+            "name": "valueNames",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddressBook": {
+      "type": "object",
+      "properties": {
+        "cityCode": {
+          "type": "string",
+          "refType": null
+        },
+        "cityName": {
+          "type": "string",
+          "refType": null
+        },
+        "consignee": {
+          "type": "string",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "detail": {
+          "type": "string",
+          "refType": null
+        },
+        "districtCode": {
+          "type": "string",
+          "refType": null
+        },
+        "districtName": {
+          "type": "string",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "isDefault": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "label": {
+          "type": "string",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "refType": null
+        },
+        "provinceCode": {
+          "type": "string",
+          "refType": null
+        },
+        "provinceName": {
+          "type": "string",
+          "refType": null
+        },
+        "sex": {
+          "type": "string",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "AddressBook"
+    },
+    "Category": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "Category"
+    },
+    "DishDto": {
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "categoryName": {
+          "type": "string",
+          "refType": null
+        },
+        "code": {
+          "type": "string",
+          "refType": null
+        },
+        "copies": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "description": {
+          "type": "string",
+          "refType": null
+        },
+        "flavors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DishFlavor",
+            "originalRef": "DishFlavor"
+          },
+          "refType": "DishFlavor"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "refType": null
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "DishDto"
+    },
+    "DishFlavor": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "dishId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "value": {
+          "type": "string",
+          "refType": null
+        }
+      },
+      "title": "DishFlavor"
+    },
+    "Employee": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "idNumber": {
+          "type": "string",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "password": {
+          "type": "string",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "refType": null
+        },
+        "sex": {
+          "type": "string",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "username": {
+          "type": "string",
+          "refType": null
+        }
+      },
+      "title": "Employee"
+    },
+    "OrderItem": {
+      "type": "object",
+      "properties": {
+        "asc": {
+          "type": "boolean",
+          "refType": null
+        },
+        "column": {
+          "type": "string",
+          "refType": null
+        }
+      },
+      "title": "OrderItem"
+    },
+    "Orders": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "refType": null
+        },
+        "addressBookId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "amount": {
+          "type": "number",
+          "refType": null
+        },
+        "checkoutTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "consignee": {
+          "type": "string",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "number": {
+          "type": "string",
+          "refType": null
+        },
+        "orderTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "payMethod": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "refType": null
+        },
+        "remark": {
+          "type": "string",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "userName": {
+          "type": "string",
+          "refType": null
+        }
+      },
+      "title": "Orders"
+    },
+    "Page": {
+      "type": "object",
+      "properties": {
+        "countId": {
+          "type": "string",
+          "refType": null
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "hitCount": {
+          "type": "boolean",
+          "refType": null
+        },
+        "maxLimit": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "optimizeCountSql": {
+          "type": "boolean",
+          "refType": null
+        },
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderItem",
+            "originalRef": "OrderItem"
+          },
+          "refType": "OrderItem"
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "refType": "object"
+        },
+        "searchCount": {
+          "type": "boolean",
+          "refType": null
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "Page"
+    },
+    "R": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "object"
+        },
+        "map": {
+          "type": "object"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R"
+    },
+    "R«AddressBook»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/AddressBook",
+          "originalRef": "AddressBook"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«AddressBook»"
+    },
+    "R«DishDto»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/DishDto",
+          "originalRef": "DishDto"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«DishDto»"
+    },
+    "R«Employee»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/Employee",
+          "originalRef": "Employee"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«Employee»"
+    },
+    "R«List«AddressBook»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AddressBook",
+            "originalRef": "AddressBook"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«AddressBook»»"
+    },
+    "R«List«Category»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Category",
+            "originalRef": "Category"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«Category»»"
+    },
+    "R«List«DishDto»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DishDto",
+            "originalRef": "DishDto"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«DishDto»»"
+    },
+    "R«List«Setmeal»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Setmeal",
+            "originalRef": "Setmeal"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«Setmeal»»"
+    },
+    "R«List«ShoppingCart»»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShoppingCart",
+            "originalRef": "ShoppingCart"
+          }
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«List«ShoppingCart»»"
+    },
+    "R«Page»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/Page",
+          "originalRef": "Page"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«Page»"
+    },
+    "R«SetmealDto»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/SetmealDto",
+          "originalRef": "SetmealDto"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«SetmealDto»"
+    },
+    "R«ShoppingCart»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/ShoppingCart",
+          "originalRef": "ShoppingCart"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«ShoppingCart»"
+    },
+    "R«User»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "$ref": "#/definitions/User",
+          "originalRef": "User"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«User»"
+    },
+    "R«string»": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "string"
+        },
+        "map": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "R«string»"
+    },
+    "Setmeal": {
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "code": {
+          "type": "string",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "description": {
+          "type": "string",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "Setmeal"
+    },
+    "SetmealDish": {
+      "type": "object",
+      "properties": {
+        "copies": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "dishId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "isDeleted": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "refType": null
+        },
+        "setmealId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "sort": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "SetmealDish"
+    },
+    "SetmealDto": {
+      "type": "object",
+      "properties": {
+        "categoryId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "categoryName": {
+          "type": "string",
+          "refType": null
+        },
+        "code": {
+          "type": "string",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "createUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "description": {
+          "type": "string",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "price": {
+          "type": "number",
+          "refType": null
+        },
+        "setmealDishes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SetmealDish",
+            "originalRef": "SetmealDish"
+          },
+          "refType": "SetmealDish"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "updateTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "updateUser": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "SetmealDto"
+    },
+    "ShoppingCart": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "refType": null
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "refType": null
+        },
+        "dishFlavor": {
+          "type": "string",
+          "refType": null
+        },
+        "dishId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "image": {
+          "type": "string",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "number": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        },
+        "setmealId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        }
+      },
+      "title": "ShoppingCart"
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "avatar": {
+          "type": "string",
+          "refType": null
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "refType": null
+        },
+        "idNumber": {
+          "type": "string",
+          "refType": null
+        },
+        "name": {
+          "type": "string",
+          "refType": null
+        },
+        "phone": {
+          "type": "string",
+          "refType": null
+        },
+        "sex": {
+          "type": "string",
+          "refType": null
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "refType": null
+        }
+      },
+      "title": "User"
+    }
+  }
+}
